@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FOOD BUCKET | foodbucket.online</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFDF7;--surface:#fff;--ink:#231815;--muted:#6B5E58;--red:#D7261E;--red-ink:#fff;--yellow:#FFC933;--yellow-ink:#231815;--blue:#17446B;--line:#EBDFD3;--wash:#FFF1D6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171210;--surface:#231C19;--ink:#F6EEE8;--muted:#B5A79F;--red:#FF5A4F;--red-ink:#1A0907;--wash:#2B2019;--line:#3A2D26;--blue:#7FB6E4;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#171210;--surface:#231C19;--ink:#F6EEE8;--muted:#B5A79F;--red:#FF5A4F;--red-ink:#1A0907;--wash:#2B2019;--line:#3A2D26;--blue:#7FB6E4;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6}
+h1,h2,h3,.brand{font-family:"Baloo 2","DM Sans",system-ui,sans-serif;line-height:1.1}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:24px;letter-spacing:.5px}
+.bucket{width:34px;height:30px;background:var(--red);clip-path:polygon(0 0,100% 0,88% 100%,12% 100%);position:relative}
+.bucket:after{content:"";position:absolute;left:0;right:0;top:8px;height:5px;background:var(--yellow)}
+.nav a.cta{background:var(--red);color:var(--red-ink);padding:8px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px}
+.hero{padding:30px 0 40px;display:grid;gap:26px}
+.hero h1{font-size:clamp(42px,9vw,80px);font-weight:800;margin:0;max-width:11ch}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p{margin:0;color:var(--muted);max-width:44ch;font-size:19px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.panel{border-radius:16px;padding:18px;text-decoration:none;display:block}
+.panel.r{background:var(--yellow);color:var(--yellow-ink)}
+.panel.f{background:#8ED3F0;color:#0B2A3A}.tab[data-cat="frozen"][aria-selected="true"]{background:#8ED3F0;border-color:#8ED3F0;color:#0B2A3A}.item.fz{border-top:5px solid #8ED3F0}.panel.p{background:var(--red);color:var(--red-ink)}
+.panel b{font-family:"Baloo 2",sans-serif;font-size:24px;display:block;line-height:1.2}
+.panel span{font-size:15px;opacity:.9}
+.band{background:var(--red);color:var(--red-ink);padding:13px 0;font-weight:500}
+.band .wrap{display:flex;flex-wrap:wrap;gap:6px 26px}
+section{padding:46px 0}
+h2{font-size:34px;margin:0 0 4px;font-weight:700}
+.sub{color:var(--muted);margin:0 0 22px}
+.tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.tab{background:var(--surface);border:2px solid var(--line);color:var(--ink);padding:9px 18px;border-radius:999px;font:inherit;font-weight:600;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--red);border-color:var(--red);color:var(--red-ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:3px}
+.item h3{margin:0;font-size:22px;font-weight:700}
+.item .d{color:var(--muted);font-size:15px;flex:1}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.price{font-weight:600;font-size:19px}
+.price small{color:var(--muted);font-weight:400;font-size:13px}
+.qty{display:flex;align-items:center;gap:10px}
+.qty button{width:34px;height:34px;border-radius:50%;border:2px solid var(--red);background:transparent;color:var(--red);font-size:20px;line-height:1;cursor:pointer}
+.qty span{min-width:18px;text-align:center;font-weight:600}
+.combo{background:var(--wash);border-radius:18px;padding:24px;display:grid;gap:8px}
+.combo h2{margin:0}
+.combo ul{margin:6px 0;padding-left:20px}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.how div{border-top:5px solid var(--yellow);padding-top:10px}
+.how b{display:block;font-size:20px;font-family:"Baloo 2",sans-serif}
+.how span{color:var(--muted);font-size:15px}
+.order{background:var(--wash);border-radius:18px;padding:24px}
+.order label{display:block;font-weight:600;margin:12px 0 4px;font-size:15px}
+.order input,.order textarea{width:100%;padding:11px;border:2px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit}
+.sum{margin:14px 0;padding:12px;background:var(--surface);border-radius:10px;border:1px dashed var(--line);min-height:50px}
+.sum div{display:flex;justify-content:space-between;gap:10px}
+.total{font-weight:700;font-size:19px;border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+.btn{background:var(--red);color:var(--red-ink);border:0;border-radius:10px;padding:13px 26px;font:inherit;font-weight:600;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+footer{padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:420px){.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav"><div class="brand"><span class="bucket"></span>FOOD BUCKET</div><a class="cta" href="#order">Order now</a></nav>
+  <div class="hero">
+    <h1>Fill your <em>bucket</em> with good food</h1>
+    <p>Order hot burgers and momos today, stock up on frozen food, or pre-order party-size trays. We deliver to your door.</p>
+    <div class="two">
+      <a class="panel r" href="#menu" data-go="ready"><b>Order</b><span>Hot, fresh food delivered today</span></a>
+      <a class="panel f" href="#menu" data-go="frozen"><b>Frozen Food</b><span>Freezer-ready, available now</span></a>
+      <a class="panel p" href="#menu" data-go="pre"><b>Pre-order</b><span>Book 6 hours ahead</span></a>
+    </div>
+  </div>
+</div>
+<div class="band"><div class="wrap"><span>Fresh ingredients</span><span>Hygienic kitchen</span><span>Delivery ৳60 within 1 km</span><span>Open daily, 9 AM – 9 PM</span></div></div>
+
+<section id="menu"><div class="wrap">
+  <h2>Menu</h2>
+  <p class="sub">Tap + to add items to your bucket.</p>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-cat="ready">Order</button>
+    <button class="tab" role="tab" aria-selected="false" data-cat="frozen">Frozen Food</button>
+    <button class="tab" role="tab" aria-selected="false" data-cat="pre">Pre-order</button>
+  </div>
+  <p class="sub" id="note" style="font-weight:600;color:var(--red)"></p><div class="grid" id="grid"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>How to order</h2><p class="sub">Three simple steps.</p>
+  <div class="how">
+    <div><b>Pick your food</b><span>Add items from the menu to your bucket.</span></div>
+    <div><b>Enter your details</b><span>Name, phone and delivery address.</span></div>
+    <div><b>Send on WhatsApp</b><span>We confirm and deliver to you.</span></div>
+  </div>
+</div></section>
+
+<section id="order"><div class="wrap"><div class="order">
+  <h2>Your bucket</h2>
+  <p class="sub">We deliver within 1 km of <a href="https://maps.app.goo.gl/jxZn8NWoCkeP1FU37?g_st=ic" target="_blank" rel="noopener" style="color:inherit">our location</a>. Pre-orders must be placed at least 6 hours before delivery.</p>
+  <div class="sum" id="sum"></div>
+  <label for="nm">Name</label><input id="nm" autocomplete="name">
+  <label for="ph">Phone number</label><input id="ph" type="tel" autocomplete="tel">
+  <label for="ad">Delivery address (within 1 km)</label><textarea id="ad" rows="2" autocomplete="street-address"></textarea>
+  <label for="dt">Delivery date & time</label><input id="dt" placeholder="Pre-orders: at least 6 hours from now">
+  <p style="margin:16px 0 0"><button class="btn" id="send">Send order on WhatsApp</button></p>
+</div></div></section>
+
+<footer><div class="wrap"><b>FOOD BUCKET</b> · foodbucket.online · Dhaka · Phone: 01700-000000<br><a href="https://maps.app.goo.gl/jxZn8NWoCkeP1FU37?g_st=ic" target="_blank" rel="noopener" style="color:inherit">Our location on Google Maps</a> · We deliver within 1 km only<br>Keep frozen food in the freezer and heat thoroughly before eating.</div></footer>
+
+<script>
+var WA="8801700000000"; // your WhatsApp number with country code, no +
+var items=[
+{id:"o1",c:"ready",n:"Mini Burger",d:"Two juicy mini burgers, fresh and hot",p:140,u:"2 pcs"},
+{id:"o2",c:"ready",n:"Regular Burger",d:"Classic burger made to order",p:120,u:"1 pc"},
+{id:"o3",c:"ready",n:"Momo",d:"Steamed momo served with dipping sauce",p:150,u:"6 pcs"},
+{id:"f1",c:"frozen",n:"Kuli Pitha",d:"Traditional pitha, frozen and ready to cook",p:400,u:"10 pcs"},
+{id:"p1",c:"pre",n:"Tehari",d:"Spiced Dhaka-style tehari, packed in boxes",p:1200,u:"5 boxes"},
+{id:"p2",c:"pre",n:"Beef Rezala",d:"Rich, creamy beef rezala",p:1500,u:"1 kg"},
+{id:"p3",c:"pre",n:"Roast",d:"Classic roast, perfect with polao",p:750,u:"5 pcs"},
+{id:"p4",c:"pre",n:"Plain Polao",d:"Fragrant plain polao, packed in boxes",p:500,u:"5 boxes"}
+];
+var cart={},cat="ready";
+function render(){
+  var g=document.getElementById("grid");g.innerHTML="";document.getElementById("note").textContent=cat==="pre"?"Pre-order only: book at least 6 hours before your delivery time.":cat==="frozen"?"Frozen and ready to stock. Keep in the freezer until you cook.":"Hot and fresh, available for same-day delivery.";document.getElementById("note").style.color=cat==="frozen"?"#2B86B0":"var(--red)";
+  items.filter(function(i){return i.c===cat}).forEach(function(i){
+    var q=cart[i.id]||0,e=document.createElement("div");e.className="item"+(i.c==="frozen"?" fz":"");
+    e.innerHTML='<h3>'+i.n+'</h3><div class="d">'+i.d+'</div><div class="row"><div class="price">৳'+i.p+' <small>/ '+i.u+'</small></div><div class="qty"><button aria-label="Remove one" data-m="'+i.id+'">−</button><span>'+q+'</span><button aria-label="Add one" data-p="'+i.id+'">+</button></div></div>';
+    g.appendChild(e)});
+  summary()}
+function summary(){
+  var s=document.getElementById("sum"),t=0,h="";
+  items.forEach(function(i){var q=cart[i.id];if(q){t+=q*i.p;h+='<div><span>'+i.n+(i.c==="pre"?" (pre-order)":"")+' × '+q+'</span><span>৳'+q*i.p+'</span></div>'}});
+  s.innerHTML=h?h+'<div><span>Subtotal</span><span>৳'+t+'</span></div><div><span>Delivery charge</span><span>৳60</span></div><div class="total"><span>Total</span><span>৳'+(t+60)+'</span></div>':"Your bucket is empty. Add items from the menu.";
+  return t}
+function setCat(c){cat=c;document.querySelectorAll(".tab").forEach(function(x){x.setAttribute("aria-selected",x.dataset.cat===c)});render()}
+document.getElementById("grid").addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b)return;
+  var p=b.dataset.p,m=b.dataset.m;
+  if(p)cart[p]=(cart[p]||0)+1;
+  if(m&&cart[m]){cart[m]--;if(!cart[m])delete cart[m]}
+  render()});
+document.querySelectorAll(".tab").forEach(function(t){t.addEventListener("click",function(){setCat(t.dataset.cat)})});
+document.querySelectorAll("[data-go]").forEach(function(a){a.addEventListener("click",function(){setCat(a.dataset.go)})});
+document.getElementById("send").addEventListener("click",function(){
+  var t=summary();if(!t){alert("Please add something to your bucket first.");return}
+  var nm=document.getElementById("nm").value.trim(),ph=document.getElementById("ph").value.trim(),ad=document.getElementById("ad").value.trim();
+  if(!nm||!ph||!ad){alert("Please enter your name, phone and address.");return}
+  var l=["FOOD BUCKET new order:"];
+  items.forEach(function(i){if(cart[i.id])l.push("- "+i.n+(i.c==="pre"?" [PRE-ORDER]":"")+" x "+cart[i.id]+" = BDT "+cart[i.id]*i.p)});
+  l.push("Subtotal: BDT "+t,"Delivery: BDT 60","Total: BDT "+(t+60),"Name: "+nm,"Phone: "+ph,"Address: "+ad,"Needed: "+(document.getElementById("dt").value||"-"));
+  window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(l.join("\n")),"_blank")});
+render();
+</script>
+</body>
+</html>
